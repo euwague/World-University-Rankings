@@ -1,0 +1,268 @@
+library(tidyverse)
+library(tibble)
+library(ggplot2)
+library(dplyr)
+times <- read.csv("timesData.csv")
+timesdf <- data.frame(times)
+names(timesdf)
+shangai <- read.csv("shanghaiData.csv")
+shangaidf <- data.frame(shangai)
+names(shangaidf)
+cwur <- read.csv("cwurData.csv")
+cwurdf <- data.frame(cwur)
+names(cwurdf)
+#comparing the mean of the total scores from three datasets(cwur, shangai and times)
+#used to determine the world ranking of universities in the year 2014.
+timesfilter <- timesdf %>% filter(year == "2014")
+timesnumeric <- as.numeric(timesfilter$total_score)
+timesomit <- na.omit(timesnumeric)
+timesmean <- mean(timesomit)
+timesmean
+cwurfilter <- cwurdf %>% filter(year == "2014")
+cwurnumeric <- as.numeric(cwurfilter$score)
+cwuromit <- na.omit(cwurnumeric)
+cwurmean <- mean(cwuromit)
+cwurmean
+shangaifilter <- shangaidf %>% filter(year == "2014")
+shangainumeric <- as.numeric(shangaifilter$total_score)
+shangaiomit <- na.omit(shangainumeric)
+shangaimean <- mean(shangaiomit)
+shangaimean
+setwd("C:/Users/Emmanuel/Downloads/Semester Two")
+setwd("C:/Users/Emmanuel/Downloads/Semester Two/Data Science/PROJECT")
+library(tidyverse)
+library(tibble)
+library(ggplot2)
+library(dplyr)
+times <- read.csv("timesData.csv")
+timesdf <- data.frame(times)
+names(timesdf)
+shangai <- read.csv("shanghaiData.csv")
+shangaidf <- data.frame(shangai)
+names(shangaidf)
+cwur <- read.csv("cwurData.csv")
+cwurdf <- data.frame(cwur)
+names(cwurdf)
+#comparing the mean of the total scores from three datasets(cwur, shangai and times)
+#used to determine the world ranking of universities in the year 2014.
+timesfilter <- timesdf %>% filter(year == "2014")
+timesnumeric <- as.numeric(timesfilter$total_score)
+timesomit <- na.omit(timesnumeric)
+timesmean <- mean(timesomit)
+timesmean
+cwurfilter <- cwurdf %>% filter(year == "2014")
+cwurnumeric <- as.numeric(cwurfilter$score)
+cwuromit <- na.omit(cwurnumeric)
+cwurmean <- mean(cwuromit)
+cwurmean
+shangaifilter <- shangaidf %>% filter(year == "2014")
+shangainumeric <- as.numeric(shangaifilter$total_score)
+shangaiomit <- na.omit(shangainumeric)
+shangaimean <- mean(shangaiomit)
+shangaimean
+library(tidyverse)
+library(tibble)
+library(ggplot2)
+library(dplyr)
+cwur <- read.csv("cwurData.csv")
+cwurdf <- data.frame(cwur)
+names(cwurdf)
+times <- read.csv("timesData.csv")
+timesdf <- data.frame(times)
+names(timesdf)
+#comparing the research(publications) and citations from both the center for
+#world ranking dataset and the times dataset between canadian universities
+#and American universities only.
+#canadian universities from the cwur dataset
+cwurfilter <- cwurdf %>% filter(country == "Canada")
+ggplot(cwurfilter, aes(x=publications, y=citations)) + geom_point(aes(color = year)) +
+geom_smooth(method = "loess", formula = y~x) + facet_wrap(year~.) + labs(title = "Publications Vs Citations
+in Canadian Universities from the
+cwur dataset")
+#american universities from the cwur dataset
+amerfilter <- cwurdf %>% filter(country =="USA")
+ggplot(amerfilter, aes(x=publications, y=citations)) + geom_point(aes(color = year)) +
+geom_smooth(method = "loess", formula = y~x) + facet_wrap(year~.) + labs(title = "Publications Vs Citations
+in American Universities from the
+cwur dataset")
+#canadian universities from the times dataset
+timesfilter <- timesdf %>% filter(country == "Canada")
+ggplot(timesfilter, aes(x=research, y=citations)) + geom_point(aes(color = year)) +
+geom_smooth(method = "loess", formula = y~x) + facet_wrap(year~.) + labs(title = "Research Vs Citations
+in Canadian Universities from the
+times dataset")
+#american universities from the times dataset
+amertimes <- timesdf %>% filter(country == "United States of America")
+ggplot(amertimes, aes(x=research, y=citations)) + geom_point(aes(color = year)) +
+geom_smooth(method = "loess", formula = y~x) + facet_wrap(year~.) + labs(title = "Research Vs Citations
+in American Universities from the
+times dataset")
+ggplot(cwurfilter, aes(x=publications, y=citations)) + geom_point(aes(color = year)) +
+geom_smooth(method = "loess", formula = y~x) + facet_wrap(year~.) + labs(title = "Publications Vs Citations
+in Canadian Universities from the
+cwur dataset")
+ggplot(amerfilter, aes(x=publications, y=citations)) + geom_point(aes(color = year)) +
+geom_smooth(method = "loess", formula = y~x) + facet_wrap(year~.) + labs(title = "Publications Vs Citations
+in American Universities from the
+cwur dataset")
+ggplot(timesfilter, aes(x=research, y=citations)) + geom_point(aes(color = year)) +
+geom_smooth(method = "loess", formula = y~x) + facet_wrap(year~.) + labs(title = "Research Vs Citations
+in Canadian Universities from the
+times dataset")
+ggplot(amertimes, aes(x=research, y=citations)) + geom_point(aes(color = year)) +
+geom_smooth(method = "loess", formula = y~x) + facet_wrap(year~.) + labs(title = "Research Vs Citations
+in American Universities from the
+times dataset")
+library(tidyverse)
+library(tibble)
+library(ggplot2)
+library(dplyr)
+times <- read.csv("timesData.csv")
+timesdf <- data.frame(times)
+names(timesdf)
+shangai <- read.csv("shanghaiData.csv")
+shangaidf <- data.frame(shangai)
+names(shangaidf)
+cwur <- read.csv("cwurData.csv")
+cwurdf <- data.frame(cwur)
+names(cwurdf)
+#comparing the mean of the total scores from three datasets(cwur, shangai and times)
+#used to determine the world ranking of universities in the year 2014.
+timesfilter <- timesdf %>% filter(year == "2014")
+timesnumeric <- as.numeric(timesfilter$total_score)
+timesomit <- na.omit(timesnumeric)
+timesmean <- mean(timesomit)
+timesmean
+cwurfilter <- cwurdf %>% filter(year == "2014")
+cwurnumeric <- as.numeric(cwurfilter$score)
+cwuromit <- na.omit(cwurnumeric)
+cwurmean <- mean(cwuromit)
+cwurmean
+shangaifilter <- shangaidf %>% filter(year == "2014")
+shangainumeric <- as.numeric(shangaifilter$total_score)
+shangaiomit <- na.omit(shangainumeric)
+shangaimean <- mean(shangaiomit)
+shangaimean
+timesmean
+cwurmean
+timesmean <- mean(timesomit)
+timesmean
+cwurmean
+shangaimean
+library(tidyverse)
+library(tibble)
+library(ggplot2)
+library(dplyr)
+cwur <- read.csv("cwurData.csv")
+cwurdf <- data.frame(cwur)
+names(cwurdf)
+#To display the quality of education and quality of faculty using the cwur dataset
+#Using universities in the United Kingdom, USA, France,Switzerland and Canada.
+#between the year 2012-2015
+unitedkingdom <- cwurdf %>% filter(country == "United Kingdom")
+ggplot(unitedkingdom, aes(x=quality_of_education, y=quality_of_faculty)) +
+geom_point() + geom_smooth(method="lm") + facet_grid(year~.) + labs(title = "UNIVERSITIES IN THE UNITED KINGDOM")
+usa <- cwurdf %>% filter(country == "USA")
+ggplot(usa, aes(x=quality_of_education, y=quality_of_faculty)) +
+geom_point() + geom_smooth(method="lm") + facet_grid(year~.) + labs(title = "UNIVERSITIES IN USA")
+france <- cwurdf %>% filter(country == "France")
+ggplot(france, aes(x=quality_of_education, y=quality_of_faculty)) +
+geom_point() + geom_smooth(method="lm") + facet_grid(year~.) + labs(title = "UNIVERSITIES IN FRANCE")
+switzerland <- cwurdf %>% filter(country == "Switzerland")
+ggplot(switzerland, aes(x=quality_of_education, y=quality_of_faculty)) +
+geom_point() + geom_smooth(method="lm") + facet_grid(year~.) + labs(title = "UNIVERSITIES IN SWITZERLAND")
+switzerland <- cwurdf %>% filter(country == "Canada")
+ggplot(switzerland, aes(x=quality_of_education, y=quality_of_faculty)) +
+geom_point() + geom_smooth(method="lm") + facet_grid(year~.) + labs(title = "UNIVERSITIES IN CANADA")
+ggplot(unitedkingdom, aes(x=quality_of_education, y=quality_of_faculty)) +
+geom_point() + geom_smooth(method="lm") + facet_grid(year~.) + labs(title = "UNIVERSITIES IN THE UNITED KINGDOM")
+ggplot(usa, aes(x=quality_of_education, y=quality_of_faculty)) +
+geom_point() + geom_smooth(method="lm") + facet_grid(year~.) + labs(title = "UNIVERSITIES IN USA")
+ggplot(france, aes(x=quality_of_education, y=quality_of_faculty)) +
+geom_point() + geom_smooth(method="lm") + facet_grid(year~.) + labs(title = "UNIVERSITIES IN FRANCE")
+ggplot(switzerland, aes(x=quality_of_education, y=quality_of_faculty)) +
+geom_point() + geom_smooth(method="lm") + facet_grid(year~.) + labs(title = "UNIVERSITIES IN SWITZERLAND")
+ggplot(switzerland, aes(x=quality_of_education, y=quality_of_faculty)) +
+geom_point() + geom_smooth(method="lm") + facet_grid(year~.) + labs(title = "UNIVERSITIES IN CANADA")
+library(tidyverse)
+library(tibble)
+library(ggplot2)
+library(dplyr)
+shangai <- read.csv("shanghaiData.csv")
+shangaidf <- data.frame(shangai)
+names(shangaidf)
+#To show the N & S scores based on the number of papers published in Nature
+#and science...
+#using the top 100 univerities in the year 2015
+shangai2015 <- shangaidf %>% filter(year == "2015")
+shangaihead <- head(shangai2015,100)
+ggplot(shangaihead, aes(x=ns)) + geom_histogram(aes(y=..density..), binwidth = .9) +
+geom_density(alpha=.2, fill = "red")
+#To show the hici scores based on the number of Highly Cited Researchers selected
+#by Thomson Reuters
+#using the top 100 univerities in the year 2015
+ggplot(shangaihead, aes(x=hici)) + geom_histogram(aes(y=..density..), binwidth = .9) +
+geom_density(alpha=.2, fill = "blue")
+#To show the pub scores based on total number of papers indexed in the Science
+#Citation Index-Expanded and Social Science Citation Index
+#using the top 100 univerities from the year 2015
+ggplot(shangaihead, aes(x=pub)) + geom_histogram(aes(y=..density..), binwidth = .9) +
+geom_density(alpha=.2, fill = "green")
+#To show the pcp scores the weighted scores of the above five indicators
+#divided by the number of full time academic staff
+#using the top 100 univerities from the year 2015
+ggplot(shangaihead, aes(x=pcp)) + geom_histogram(aes(y=..density..), binwidth = .9) +
+geom_density(alpha=.2, fill = "yellow")
+ggplot(shangaihead, aes(x=ns)) + geom_histogram(aes(y=..density..), binwidth = .9) +
+geom_density(alpha=.2, fill = "red")
+ggplot(shangaihead, aes(x=hici)) + geom_histogram(aes(y=..density..), binwidth = .9) +
+geom_density(alpha=.2, fill = "blue")
+ggplot(shangaihead, aes(x=pub)) + geom_histogram(aes(y=..density..), binwidth = .9) +
+geom_density(alpha=.2, fill = "green")
+ggplot(shangaihead, aes(x=pcp)) + geom_histogram(aes(y=..density..), binwidth = .9) +
+geom_density(alpha=.2, fill = "yellow")
+library(tidyverse)
+library(tibble)
+library(ggplot2)
+library(dplyr)
+times <- read.csv("timesData.csv")
+timesdf <- data.frame(times)
+#To show the incomes in canadian universities between 2011-2016
+b <- timesdf %>% mutate(income = as.character(income)) %>%
+mutate(income = as.numeric(income))%>% filter(country == "Canada")
+v <- na.omit(b)
+ggplot(v, aes(x=income)) + geom_histogram() + facet_wrap(year~.)
+#To show the incomes in german universities between 2011-2016
+b1 <- timesdf %>% mutate(income = as.character(income)) %>%
+mutate(income = as.numeric(income))%>% filter(country == "Germany")
+v1 <- na.omit(b1)
+ggplot(v1, aes(x=income)) + geom_histogram() + facet_wrap(year~.)
+ggplot(v, aes(x=income)) + geom_histogram() + facet_wrap(year~.)
+ggplot(v1, aes(x=income)) + geom_histogram() + facet_wrap(year~.)
+library(tidyverse)
+library(tibble)
+library(ggplot2)
+educationcsv <- read.csv(file = "education_expenditure_supplementary_data.csv")
+timesdf <- read.csv(file = "timesData.csv")
+sub <- function(data, vars){
+i = length(vars)
+x = 1
+df = NA
+while(i >= x){
+df = rbind(df, filter(data, country==vars[x]))
+x = x + 1
+}
+na.omit(df)
+}
+educ <- select(educationcsv, country, direct_expenditure_type, X2011)
+educ[order(educ$X2011, decreasing = TRUE),] %>% na.omit() -> educ
+filter(educ, direct_expenditure_type=="Total") -> educ
+countries <- educ[1:20,]$country
+times_data <- filter(timesdf, year==2015)
+clist <- str_replace_all(countries, "United States", "United States of America")
+sub(times_data, clist) -> times_data
+ggplot(data = na.omit(times_data), mapping = aes(country)) +
+geom_bar() +
+xlab(label = "Country") +
+ylab(label = "Total Institions") +
+theme(axis.text.x = element_text(angle=60, vjust=0.6))
